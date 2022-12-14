@@ -1,11 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import TextEditor from './components/TextEditor';
+import Constants from 'expo-constants';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={[
+    	styles.container,
+		{
+			paddingTop: Platform.OS === 'ios' ? 0 : Constants.statusBarHeight
+		}
+    ]}>
       <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
+      <TextEditor />
     </View>
   );
 }
